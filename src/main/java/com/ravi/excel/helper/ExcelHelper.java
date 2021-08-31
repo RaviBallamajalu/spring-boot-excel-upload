@@ -20,11 +20,7 @@ public class ExcelHelper {
     static String SHEET = "Students";
 
     public static boolean hasExcelFormat(MultipartFile file) {
-        if (!TYPE.equals(file.getContentType())) {
-            return false;
-        }
-
-        return true;
+        return TYPE.equals(file.getContentType());
     }
 
     public static List<Student> excelToStudents(InputStream is) {
@@ -35,7 +31,7 @@ public class ExcelHelper {
 
             Iterator<Row> rows = sheet.iterator();
 
-            List<Student> students = new ArrayList<Student>();
+            List<Student> students = new ArrayList<>();
 
             int rowNumber = 0;
             while (rows.hasNext()) {
