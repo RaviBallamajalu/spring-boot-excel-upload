@@ -32,6 +32,7 @@ public class ExcelHelper {
             Workbook workbook = new XSSFWorkbook(is);
 
             Sheet sheet = workbook.getSheet(SHEET);
+
             Iterator<Row> rows = sheet.iterator();
 
             List<Student> students = new ArrayList<Student>();
@@ -39,7 +40,7 @@ public class ExcelHelper {
             int rowNumber = 0;
             while (rows.hasNext()) {
                 Row currentRow = rows.next();
-
+                /*To Skip the First Heading present in excel this below 3 lines are used. If the rownumber =0, It continue to next iteration*/
                 if (rowNumber == 0) {
                     rowNumber++;
                     continue;
